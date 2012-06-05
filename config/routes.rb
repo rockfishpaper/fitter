@@ -1,6 +1,7 @@
 FitterApp::Application.routes.draw do
-  get "users/new"
-
+  
+  resources :users
+  
   root to: 'static_pages#home'
 
   match '/signup',  to: 'users#new'
@@ -8,6 +9,10 @@ FitterApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about' 
   match '/help',    to: 'static_pages#help'
   match '/contact', to: 'static_pages#contact'
+
+
+  # automatically creates resource route (maps HTTP verbs to controller actions automatically)
+  resources :users
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
