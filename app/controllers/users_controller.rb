@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       #Handle a successful save
       flash[:success] = "Welcome to Fitter"
       redirect_to @user
@@ -18,4 +19,5 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
 end
