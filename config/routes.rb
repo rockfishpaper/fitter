@@ -1,7 +1,8 @@
 FitterApp::Application.routes.draw do
   
   resources :users
-  resources :sessions, only: [:new, :create, :destory]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
   
   root to: 'static_pages#home'
 
@@ -18,7 +19,7 @@ FitterApp::Application.routes.draw do
   
 
   # automatically creates resource route (maps HTTP verbs to controller actions automatically)
-  resources :users
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
